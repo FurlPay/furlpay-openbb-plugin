@@ -1,0 +1,187 @@
+{
+  "research_to_execute": {
+    "name": "Research → Execute",
+    "description": "How to pair OpenBB data with FurlPay stablecoin execution.",
+    "type": "markdown",
+    "endpoint": "research_to_execute",
+    "category": "FurlPay",
+    "gridData": { "w": 12, "h": 8 },
+    "source": ["FurlPay"]
+  },
+  "portfolio_summary": {
+    "name": "Portfolio Summary",
+    "description": "Headline portfolio KPIs: total value, invested, USDC cash, unrealized P&L.",
+    "type": "metric",
+    "endpoint": "portfolio_summary",
+    "category": "FurlPay",
+    "subCategory": "Investing",
+    "gridData": { "w": 28, "h": 5 },
+    "source": ["FurlPay"],
+    "refetchInterval": 60000
+  },
+  "positions": {
+    "name": "Positions",
+    "description": "Open positions with quantity, cost basis, last price, and unrealized P&L.",
+    "type": "table",
+    "endpoint": "positions",
+    "category": "FurlPay",
+    "subCategory": "Investing",
+    "gridData": { "w": 22, "h": 11 },
+    "source": ["FurlPay"],
+    "refetchInterval": 60000,
+    "data": {
+      "table": {
+        "enableCharts": true,
+        "columnsDefs": [
+          { "field": "symbol", "headerName": "Symbol", "cellDataType": "text", "pinned": "left", "width": 100, "chartDataType": "category" },
+          { "field": "qty", "headerName": "Qty", "cellDataType": "number", "decimalPlaces": 4, "align": "right" },
+          { "field": "avg_price", "headerName": "Avg", "cellDataType": "number", "decimalPlaces": 2, "prefix": "$", "align": "right" },
+          { "field": "last_price", "headerName": "Last", "cellDataType": "number", "decimalPlaces": 2, "prefix": "$", "align": "right" },
+          { "field": "market_value", "headerName": "Mkt Value", "cellDataType": "number", "decimalPlaces": 2, "prefix": "$", "align": "right", "chartDataType": "series" },
+          { "field": "unrealized_pl", "headerName": "P&L", "cellDataType": "number", "decimalPlaces": 2, "prefix": "$", "align": "right", "renderFn": "greenRed" },
+          { "field": "unrealized_pl_pct", "headerName": "P&L %", "cellDataType": "number", "decimalPlaces": 2, "suffix": "%", "align": "right", "renderFn": "greenRed" }
+        ]
+      }
+    }
+  },
+  "wallet_balances": {
+    "name": "Stablecoin Balances",
+    "description": "USDC and token balances across Solana and Base.",
+    "type": "table",
+    "endpoint": "wallet_balances",
+    "category": "FurlPay",
+    "subCategory": "Wallet",
+    "gridData": { "w": 18, "h": 11 },
+    "source": ["FurlPay"],
+    "refetchInterval": 60000,
+    "data": {
+      "table": {
+        "columnsDefs": [
+          { "field": "token", "headerName": "Token", "cellDataType": "text", "width": 90 },
+          { "field": "network", "headerName": "Network", "cellDataType": "text", "width": 100 },
+          { "field": "balance", "headerName": "Balance", "cellDataType": "number", "decimalPlaces": 4, "align": "right" },
+          { "field": "usd_value", "headerName": "USD Value", "cellDataType": "number", "decimalPlaces": 2, "prefix": "$", "align": "right" }
+        ]
+      }
+    }
+  },
+  "x402_revenue": {
+    "name": "x402 Paywall Revenue",
+    "description": "Per-resource agentic paywall calls and USDC revenue (24h / 30d).",
+    "type": "table",
+    "endpoint": "x402_revenue",
+    "category": "FurlPay",
+    "subCategory": "Agentic",
+    "gridData": { "w": 40, "h": 10 },
+    "source": ["FurlPay"],
+    "refetchInterval": 300000,
+    "data": {
+      "table": {
+        "enableCharts": true,
+        "chartView": { "enabled": false, "chartType": "column", "cellRangeCols": { "column": ["resource", "revenue_30d"] } },
+        "columnsDefs": [
+          { "field": "resource", "headerName": "Resource", "cellDataType": "text", "pinned": "left", "width": 220, "chartDataType": "category" },
+          { "field": "network", "headerName": "Network", "cellDataType": "text", "width": 100 },
+          { "field": "calls_24h", "headerName": "Calls 24h", "cellDataType": "number", "formatterFn": "int", "align": "right" },
+          { "field": "price_usdc", "headerName": "Price", "cellDataType": "number", "decimalPlaces": 2, "prefix": "$", "align": "right" },
+          { "field": "revenue_24h", "headerName": "Rev 24h", "cellDataType": "number", "decimalPlaces": 2, "prefix": "$", "align": "right" },
+          { "field": "revenue_30d", "headerName": "Rev 30d", "cellDataType": "number", "decimalPlaces": 2, "prefix": "$", "align": "right", "chartDataType": "series" }
+        ]
+      }
+    }
+  },
+  "payments_blotter": {
+    "name": "Recent Payments",
+    "description": "Most recent payments across checkout, cards, and x402.",
+    "type": "table",
+    "endpoint": "payments_blotter",
+    "category": "FurlPay",
+    "subCategory": "Payments",
+    "gridData": { "w": 40, "h": 10 },
+    "source": ["FurlPay"],
+    "refetchInterval": 60000,
+    "data": {
+      "table": {
+        "columnsDefs": [
+          { "field": "created", "headerName": "Time", "cellDataType": "dateString", "width": 180 },
+          { "field": "description", "headerName": "Description", "cellDataType": "text", "width": 160 },
+          { "field": "amount", "headerName": "Amount", "cellDataType": "number", "decimalPlaces": 2, "align": "right" },
+          { "field": "currency", "headerName": "Ccy", "cellDataType": "text", "width": 80 },
+          { "field": "status", "headerName": "Status", "cellDataType": "text", "renderFn": "columnColor", "width": 120 }
+        ]
+      }
+    }
+  },
+  "order_blotter": {
+    "name": "Place Order",
+    "description": "Buy or sell a fractional position, funded in USDC. Submissions appear below.",
+    "type": "table",
+    "endpoint": "order_blotter",
+    "category": "FurlPay",
+    "subCategory": "Execute",
+    "gridData": { "w": 20, "h": 9 },
+    "source": ["FurlPay"],
+    "params": [
+      {
+        "paramName": "order_form",
+        "description": "Place a fractional order settled in USDC",
+        "type": "form",
+        "endpoint": "execute_order",
+        "inputParams": [
+          { "paramName": "symbol", "type": "text", "value": "VOO", "label": "Symbol", "description": "Ticker to trade (e.g. VOO, AAPL)" },
+          { "paramName": "side", "type": "text", "value": "buy", "label": "Side", "description": "Buy or sell", "options": [ { "label": "Buy", "value": "buy" }, { "label": "Sell", "value": "sell" } ] },
+          { "paramName": "notional", "type": "number", "value": 25, "label": "Notional (USDC)", "description": "Dollar amount to trade" },
+          { "paramName": "submit_order", "type": "button", "value": true, "label": "Submit Order", "description": "Send the order to FurlPay" }
+        ]
+      }
+    ]
+  },
+  "dca_blotter": {
+    "name": "Auto-Invest (DCA)",
+    "description": "Schedule a recurring stablecoin buy — dollar-cost average into any asset.",
+    "type": "table",
+    "endpoint": "dca_blotter",
+    "category": "FurlPay",
+    "subCategory": "Execute",
+    "gridData": { "w": 20, "h": 9 },
+    "source": ["FurlPay"],
+    "params": [
+      {
+        "paramName": "dca_form",
+        "description": "Create a recurring DCA schedule funded in USDC",
+        "type": "form",
+        "endpoint": "execute_dca",
+        "inputParams": [
+          { "paramName": "symbol", "type": "text", "value": "VOO", "label": "Symbol", "description": "Ticker to accumulate" },
+          { "paramName": "amount", "type": "number", "value": 10, "label": "Amount (USDC)", "description": "Amount per interval" },
+          { "paramName": "frequency", "type": "text", "value": "weekly", "label": "Frequency", "description": "How often to buy", "options": [ { "label": "Daily", "value": "daily" }, { "label": "Weekly", "value": "weekly" }, { "label": "Monthly", "value": "monthly" } ] },
+          { "paramName": "submit_dca", "type": "button", "value": true, "label": "Schedule", "description": "Create the DCA schedule" }
+        ]
+      }
+    ]
+  },
+  "transfer_blotter": {
+    "name": "Send Stablecoins",
+    "description": "Send USDC to a wallet or FurlPay user. Submissions appear below.",
+    "type": "table",
+    "endpoint": "transfer_blotter",
+    "category": "FurlPay",
+    "subCategory": "Execute",
+    "gridData": { "w": 20, "h": 9 },
+    "source": ["FurlPay"],
+    "params": [
+      {
+        "paramName": "transfer_form",
+        "description": "Send stablecoins",
+        "type": "form",
+        "endpoint": "execute_transfer",
+        "inputParams": [
+          { "paramName": "to", "type": "text", "value": "", "label": "Recipient", "description": "Wallet address or FurlPay handle" },
+          { "paramName": "amount", "type": "number", "value": 5, "label": "Amount", "description": "Amount to send" },
+          { "paramName": "token", "type": "text", "value": "USDC", "label": "Token", "description": "Token to send", "options": [ { "label": "USDC", "value": "USDC" }, { "label": "USDT", "value": "USDT" } ] },
+          { "paramName": "submit_transfer", "type": "button", "value": true, "label": "Send", "description": "Send the transfer" }
+        ]
+      }
+    ]
+  }
+}

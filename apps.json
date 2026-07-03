@@ -1,0 +1,51 @@
+[
+  {
+    "name": "FurlPay — Research to Execution",
+    "img": "",
+    "img_dark": "",
+    "img_light": "",
+    "description": "The execution layer for OpenBB Workspace. Screen an asset with OpenBB data, then trade it, dollar-cost-average into it, or settle agentic API revenue — all funded and settled in stablecoins, 24/7.",
+    "allowCustomization": true,
+    "tabs": {
+      "overview": {
+        "id": "overview",
+        "name": "Overview",
+        "layout": [
+          { "i": "research_to_execute", "x": 0, "y": 0, "w": 12, "h": 8, "groups": [] },
+          { "i": "portfolio_summary", "x": 12, "y": 0, "w": 28, "h": 5, "groups": [] },
+          { "i": "wallet_balances", "x": 12, "y": 5, "w": 18, "h": 11, "groups": [] },
+          { "i": "positions", "x": 0, "y": 8, "w": 12, "h": 8, "groups": [] }
+        ]
+      },
+      "investing": {
+        "id": "investing",
+        "name": "Investing",
+        "layout": [
+          { "i": "portfolio_summary", "x": 0, "y": 0, "w": 40, "h": 5, "groups": [] },
+          { "i": "positions", "x": 0, "y": 5, "w": 22, "h": 11, "groups": [] },
+          { "i": "order_blotter", "x": 22, "y": 5, "w": 18, "h": 9, "groups": [] },
+          { "i": "dca_blotter", "x": 22, "y": 14, "w": 18, "h": 9, "groups": [] }
+        ]
+      },
+      "agentic": {
+        "id": "agentic",
+        "name": "Agentic (x402)",
+        "layout": [
+          { "i": "x402_revenue", "x": 0, "y": 0, "w": 40, "h": 10, "groups": [] },
+          { "i": "payments_blotter", "x": 0, "y": 10, "w": 40, "h": 10, "groups": [] }
+        ]
+      },
+      "execute": {
+        "id": "execute",
+        "name": "Execute",
+        "layout": [
+          { "i": "order_blotter", "x": 0, "y": 0, "w": 20, "h": 9, "groups": [] },
+          { "i": "dca_blotter", "x": 20, "y": 0, "w": 20, "h": 9, "groups": [] },
+          { "i": "transfer_blotter", "x": 0, "y": 9, "w": 20, "h": 9, "groups": [] },
+          { "i": "wallet_balances", "x": 20, "y": 9, "w": 20, "h": 9, "groups": [] }
+        ]
+      }
+    },
+    "groups": []
+  }
+]
