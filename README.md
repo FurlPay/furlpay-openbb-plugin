@@ -1,5 +1,11 @@
 # FurlPay for OpenBB
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![OpenBB](https://img.shields.io/badge/OpenBB-FFDC00?style=flat-square)
+![Solana](https://img.shields.io/badge/Solana-9945FF?style=flat-square&logo=solana&logoColor=white)
+![x402](https://img.shields.io/badge/x402-0052FF?style=flat-square)
+
 The **execution layer** for [OpenBB Workspace](https://openbb.co). OpenBB gives analysts and AI agents world-class financial *data* — but it can't move a dollar. This backend adds the missing half: screen an asset in OpenBB, then **trade it, dollar-cost-average into it, or settle agentic API revenue** — all funded and settled in stablecoins, 24/7.
 
 It registers as a standard OpenBB [custom backend](https://docs.openbb.co/workspace/developers/data-integration) (serves `/widgets.json` + `/apps.json`) and ships a ready-made **"Research → Execution"** app. Zero-config: it runs on deterministic demo data out of the box, and goes live the moment you set a FurlPay API key.
